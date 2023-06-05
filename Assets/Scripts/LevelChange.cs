@@ -10,14 +10,14 @@ public class LevelChange : MonoBehaviour
   
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.CompareTag("Player"))
+        if(other.CompareTag("Player")) // compares to see if what touchs it has the player tag
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); // changes the scene to next level
             Debug.Log("Level changed");
         }
         else
        {
-            SceneManager.LoadScene("Menu");
+            SceneManager.LoadScene("Menu"); // sets scene to menu
        }
     }
 }
