@@ -15,9 +15,5 @@ public class LevelChange : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); // changes the scene to next level
             Debug.Log("Level changed");
         }
-        else
-       {
-            SceneManager.LoadScene("Menu"); // sets scene to menu
-       }
     }
 }

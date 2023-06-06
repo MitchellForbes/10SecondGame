@@ -16,12 +16,12 @@ public class Timer : MonoBehaviour
     void Start()
     {
         timer = 10;
+        gameOverUI.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-
 
         DisplayTime(timer); // calls the display timer fuction
 
