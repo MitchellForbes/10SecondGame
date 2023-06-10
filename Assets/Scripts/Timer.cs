@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class Timer : MonoBehaviour
 {
 
-    public float timer = 10; // base timer used set to 10 as base
+    public float timers = 10; // base timer used set to 10 as base
     public GameObject gameOverUI; // the gameover ui
     public GameObject player; // player game object
     public Text timeText; // text used for the timer
@@ -15,7 +15,7 @@ public class Timer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        timer = 10;
+        timers = 10;
         gameOverUI.SetActive(false);
     }
 
@@ -23,7 +23,7 @@ public class Timer : MonoBehaviour
     void Update()
     {
 
-        DisplayTime(timer); // calls the display timer fuction
+        DisplayTime(timers); // calls the display timer fuction
 
         if (gameOverUI.activeSelf && Input.GetKeyDown(KeyCode.Space)) // resets the scene if gameover ui is active and then player press space
         {
@@ -33,17 +33,17 @@ public class Timer : MonoBehaviour
             Debug.Log("scene reloaded");
 
         }
-        if (timer > 0) // makes timer only go down when above 0
+        if (timers > 0) // makes timer only go down when above 0
         {
-            timer = timer - Time.deltaTime;
+            timers = timers - Time.deltaTime;
         }
 
-        if (timer <= 0) // used for when timer hits 0 to froze character and displays the over screen
+        if (timers <= 0) // used for when timer hits 0 to froze character and displays the over screen
         {
             Time.timeScale = 0;
             Debug.Log("Time Frozen");
             gameOverUI.SetActive(true);
-            timer = 10;
+            timers = 10;
         }
 
     }
@@ -57,5 +57,10 @@ public class Timer : MonoBehaviour
         float minutes = Mathf.FloorToInt(timeToDisplay / 60); // math to create minutes from the timer
         float seconds = Mathf.FloorToInt(timeToDisplay % 60); // math to create seconds from the timer
         timeText.text = string.Format("{0:00}:{1:00}", minutes, seconds); // displays the minutes and second from the timer
+    }
+
+    public void Traps()
+    {
+        timers = 0;
     }
 }
