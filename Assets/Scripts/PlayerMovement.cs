@@ -19,6 +19,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Animator playerCharacterAnimator;
     [SerializeField] private AnimationClip characterIdleAnimation;
     [SerializeField] private AnimationClip characterRunAnimation;
+    private bool playerCharJumping;
+    private bool playerCharFalling;
 
 
     // Update is called once per frame
@@ -31,10 +33,14 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Jump") && IsGrounded()) // allows the character to jump when space is pressed and when if there is ground under the player
         {                                                // then changes height based on time space is held
             rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
+            playerCharacterAnimator.SetBool("Jump", true);
+            UpdateCharAnimation();
         }
         if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
         {
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
+            playerCharacterAnimator.SetBool("Jump", false);
+            UpdateCharAnimation();
         }
     }
 
@@ -47,21 +53,27 @@ public class PlayerMovement : MonoBehaviour
     private bool IsGrounded()
     {
         return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groudLayer); // checks to see if anything is uder the player
-
     }
 
     private void UpdateCharAnimation()
     {
         if (horizontal == 1)
         {
-            Debug.Log("Running right");
-            playerCharacterAnimator.SetBool("Running", true);
-
+            this.GetComponent<SpriteRenderer>().flipX = false;
+            if (IsGrounded())
+            {
+                playerCharacterAnimator.SetBool("Jump", false);
+                playerCharacterAnimator.SetBool("Running", true);
+            }
         }
         else if (horizontal == -1)
         {
-            Debug.Log("Running left");
-            playerCharacterAnimator.SetBool("Running", true);
+            this.GetComponent<SpriteRenderer>().flipX = true;
+            if (IsGrounded())
+            {
+                playerCharacterAnimator.SetBool("Jump", false);
+                playerCharacterAnimator.SetBool("Running", true);
+            }
         }
         else
         {
