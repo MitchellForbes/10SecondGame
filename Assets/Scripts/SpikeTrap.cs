@@ -5,7 +5,6 @@ using UnityEngine;
 public class SpikeTrap : MonoBehaviour
 {
 
-    private float tim;
     // Start is called before the first frame update
     private void OnTriggerEnter2D(Collider2D other)
     {
