@@ -63,4 +63,14 @@ public class Timer : MonoBehaviour
     {
         timers = 0;
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.name == "collectible");
+        {
+            // Adds 1 sce to the timer upon colliding with the collectibles
+            timers += 1;
+            Destroy(other.gameObject); // destroy the prefab
+        }
+    }
 }
