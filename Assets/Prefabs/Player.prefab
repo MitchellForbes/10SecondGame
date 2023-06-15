@@ -397,7 +397,6 @@ GameObject:
   - component: {fileID: 5957535869291408704}
   - component: {fileID: 5957535869291408705}
   - component: {fileID: 5957535869291408702}
-  - component: {fileID: 5957535869291408709}
   - component: {fileID: 3954470677959348315}
   - component: {fileID: 1690721397064098731}
   m_Layer: 0
@@ -545,22 +544,6 @@ MonoBehaviour:
   playerCharacterAnimator: {fileID: 1690721397064098731}
   characterIdleAnimation: {fileID: 7400000, guid: e9da808b34f307741842d259a9975b26, type: 2}
   characterRunAnimation: {fileID: 7400000, guid: 5b7a006f5256e18429396970275adb51, type: 2}
---- !u!114 &5957535869291408709
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5957535869291408703}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18b915d94be935c438cb7a7de1cf12db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timer: 10
-  gameOverUI: {fileID: 0}
-  player: {fileID: 5957535869291408703}
-  timeText: {fileID: 0}
 --- !u!114 &3954470677959348315
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -27,6 +27,7 @@ public class Timer : MonoBehaviour
 
         if (gameOverUI.activeSelf && Input.GetKeyDown(KeyCode.Space)) // resets the scene if gameover ui is active and then player press space
         {
+            gameOverUI.SetActive(true);
             Time.timeScale = 1;
             Scene scene = SceneManager.GetActiveScene();
             SceneManager.LoadScene(scene.name);

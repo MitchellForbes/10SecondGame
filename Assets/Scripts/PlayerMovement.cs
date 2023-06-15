@@ -27,21 +27,19 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         horizontal = Input.GetAxisRaw("Horizontal"); // user input to see if they go left or right
-        UpdateCharAnimation();
-       
 
         if (Input.GetButtonDown("Jump") && IsGrounded()) // allows the character to jump when space is pressed and when if there is ground under the player
         {                                                // then changes height based on time space is held
             rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
-            playerCharacterAnimator.SetBool("Jump", true);
             UpdateCharAnimation();
         }
         if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
         {
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
-            playerCharacterAnimator.SetBool("Jump", false);
             UpdateCharAnimation();
         }
+
+        UpdateCharAnimation();
     }
 
     private void FixedUpdate()
@@ -55,8 +53,10 @@ public class PlayerMovement : MonoBehaviour
         return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groudLayer); // checks to see if anything is uder the player
     }
 
+    // This method checks the status of the player nad updates the character animation accordingly
     private void UpdateCharAnimation()
     {
+        // Checking to see if player is running right and flipping the sprite if need be
         if (horizontal == 1)
         {
             this.GetComponent<SpriteRenderer>().flipX = false;
@@ -66,6 +66,7 @@ public class PlayerMovement : MonoBehaviour
                 playerCharacterAnimator.SetBool("Running", true);
             }
         }
+        // Checking to see if the player is running left and flipping the sprite if need be
         else if (horizontal == -1)
         {
             this.GetComponent<SpriteRenderer>().flipX = true;
@@ -75,9 +76,24 @@ public class PlayerMovement : MonoBehaviour
                 playerCharacterAnimator.SetBool("Running", true);
             }
         }
+        // Checking to see if the charcter has an upward velocity and then plaing the jump animation
+        else if (rb.velocity.y > 0)
+        {
+            playerCharacterAnimator.SetBool("Jump", true);
+            playerCharacterAnimator.SetBool("Falling", false);
+        }
+        // Checking to see if the charcter has an downward velocity and then plaing the fall animation
+        else if (rb.velocity.y < 0)
+        {
+            playerCharacterAnimator.SetBool("Jump", false);
+            playerCharacterAnimator.SetBool("Falling", true);
+        }
+        // Reseting it back to idle animation
         else
         {
             playerCharacterAnimator.SetBool("Running", false);
+            playerCharacterAnimator.SetBool("Jump", false);
+            playerCharacterAnimator.SetBool("Falling", false);
         }
     }
 }
