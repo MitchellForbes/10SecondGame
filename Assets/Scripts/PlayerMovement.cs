@@ -22,30 +22,43 @@ public class PlayerMovement : MonoBehaviour
     private bool playerCharJumping;
     private bool playerCharFalling;
 
+    private void Start()
+    {
+        playerCharacterAnimator.SetBool("Dead", false);
+    }
 
     // Update is called once per frame
     void Update()
     {
-        horizontal = Input.GetAxisRaw("Horizontal"); // user input to see if they go left or right
-
-        if (Input.GetButtonDown("Jump") && IsGrounded()) // allows the character to jump when space is pressed and when if there is ground under the player
-        {                                                // then changes height based on time space is held
-            rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
-            UpdateCharAnimation();
-        }
-        if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
+        if (Timer.allowInput == true)
         {
-            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
-            UpdateCharAnimation();
-        }
+            horizontal = Input.GetAxisRaw("Horizontal"); // user input to see if they go left or right
 
+            if (Input.GetButtonDown("Jump") && IsGrounded()) // allows the character to jump when space is pressed and when if there is ground under the player
+            {                                                // then changes height based on time space is held
+                rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
+                UpdateCharAnimation();
+            }
+            if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
+            {
+                rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
+                UpdateCharAnimation();
+            }
+        }
         UpdateCharAnimation();
     }
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2(horizontal * Speed, rb.velocity.y);  // Move the player horizontally based on input
-        UpdateCharAnimation();
+        if (Timer.allowInput == true)
+        {
+            rb.velocity = new Vector2(horizontal * Speed, rb.velocity.y);  // Move the player horizontally based on input
+            UpdateCharAnimation();
+        }
+        else
+        {
+            UpdateCharAnimation();
+        }
     }
 
     private bool IsGrounded()
@@ -54,7 +67,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     // This method checks the status of the player nad updates the character animation accordingly
-    private void UpdateCharAnimation()
+    public void UpdateCharAnimation()
     {
         // Checking to see if player is running right and flipping the sprite if need be
         if (horizontal == 1)
@@ -88,12 +101,21 @@ public class PlayerMovement : MonoBehaviour
             playerCharacterAnimator.SetBool("Jump", false);
             playerCharacterAnimator.SetBool("Falling", true);
         }
+        else if (Timer.allowInput == false)
+        {
+            Debug.Log("Set the animator to dead");
+            playerCharacterAnimator.SetBool("Dead", true);
+            playerCharacterAnimator.SetBool("Running", false);
+            playerCharacterAnimator.SetBool("Jump", false);
+            playerCharacterAnimator.SetBool("Falling", false);
+        }
         // Reseting it back to idle animation
         else
         {
             playerCharacterAnimator.SetBool("Running", false);
             playerCharacterAnimator.SetBool("Jump", false);
             playerCharacterAnimator.SetBool("Falling", false);
+            playerCharacterAnimator.SetBool("Dead", false);
         }
     }
 }

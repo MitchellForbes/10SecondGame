@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Dart : MonoBehaviour
@@ -26,26 +27,13 @@ public class Dart : MonoBehaviour
             Debug.Log("The dart hit the player");
             Timer setTime = timerObject.GetComponent<Timer>();
             setTime.Traps();
+
+            other.GetComponent<Animator>().SetBool("Dead", true);
+            other.GetComponent<PlayerMovement>().UpdateCharAnimation();
+
             Destroy(gameObject);
         }
         else if (other.CompareTag("Ground"))
-        {
-            Debug.Log("The dart hit the ground");
-            Destroy(gameObject);
-        }
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player")) // compares to see if what touchs it has the player tag
-        {
-            Debug.Log("The dart hit the player");
-            Timer setTime = timerObject.GetComponent<Timer>();
-            setTime.Traps();
-            Destroy(gameObject);
-        }
-
-        if (other.CompareTag("Ground"))
         {
             Debug.Log("The dart hit the ground");
             Destroy(gameObject);

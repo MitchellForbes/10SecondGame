@@ -26,7 +26,7 @@ public class DartTrap : MonoBehaviour
 
         dartSpawnTime += Time.deltaTime; // adds to the time to spawn the dart
 
-        if(dartSpawnTime >= dartSpawnDelay) // if the time to spawn is greater then the delay spawn the dart and reset the time
+        if(dartSpawnTime >= dartSpawnDelay && Timer.allowInput == true) // if the time to spawn is greater then the delay spawn the dart and reset the time
         {
             dart.GetComponentInChildren<SpriteRenderer>().sortingLayerName = "Level";
             dart.GetComponentInChildren<SpriteRenderer>().sortingOrder = 3;
