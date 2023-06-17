@@ -74,7 +74,7 @@ public class Timer : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.name == "collectible");
+        if (other.gameObject.name == "collectible")
         {
             // Adds 1 sce to the timer upon colliding with the collectibles
             timers += 1;
