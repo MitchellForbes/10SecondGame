@@ -80,20 +80,15 @@ public class TutorialHandler : MonoBehaviour
         if (currentCameraPosition == 0 && footstepSFX.isPlaying == false)
         {
             footstepSFX.Play();
-            Debug.Log("footsteps play");
         }
 
-        // Checks to see if the camera is in the third position
+        // Checks to see if the camera is in the third position and that the sound is already playing (bug fix)
         if (currentCameraPosition == 2 && caveInSFX.isPlaying == false) 
         {
             footstepSFX.Stop();
             caveInSFX.Play();
             caveInSFX.loop = true;
-            Debug.Log("cave in play");
             caveInCamera = false;
         }
-
-
-
     }
 }
