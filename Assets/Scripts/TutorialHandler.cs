@@ -19,7 +19,6 @@ public class TutorialHandler : MonoBehaviour
     [SerializeField] private AudioSource backgroundMusic;
     [SerializeField] private AudioSource footstepSFX;
     [SerializeField] private AudioSource caveInSFX;
-    private bool caveInCamera;
     
     // Start is called before the first frame update
     void Start()
@@ -27,7 +26,6 @@ public class TutorialHandler : MonoBehaviour
         mainCamera.transform.position = cameraPositions[0].transform.position;
         mainCamera.orthographicSize = cameraZoom[currentCameraPosition];
         currentCameraPosition = 0;
-        caveInCamera = false;
     }
 
     // Update is called once per frame
@@ -88,7 +86,6 @@ public class TutorialHandler : MonoBehaviour
             footstepSFX.Stop();
             caveInSFX.Play();
             caveInSFX.loop = true;
-            caveInCamera = false;
         }
     }
 }
