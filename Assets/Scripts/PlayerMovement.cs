@@ -136,7 +136,6 @@ public class PlayerMovement : MonoBehaviour
             characterAudioSource.clip = jumpSFX;
             characterAudioSource.Play();
         }
-
     }
 
     public void PlayDeathSFX()
