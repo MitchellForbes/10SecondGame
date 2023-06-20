@@ -19,8 +19,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Animator playerCharacterAnimator;
     [SerializeField] private AnimationClip characterIdleAnimation;
     [SerializeField] private AnimationClip characterRunAnimation;
-    private bool playerCharJumping;
-    private bool playerCharFalling;
+
+    [Header("Character SFX Settings")]
+    [SerializeField] private AudioSource characterAudioSource;
+    [SerializeField] private AudioClip footstepSFX;
+    [SerializeField] private AudioClip jumpSFX;
+    [SerializeField] private AudioClip deathSFX;
 
     private void Start()
     {
@@ -117,5 +121,27 @@ public class PlayerMovement : MonoBehaviour
             playerCharacterAnimator.SetBool("Falling", false);
             playerCharacterAnimator.SetBool("Dead", false);
         }
+    }
+
+    public void PlayFootstepsSFX()
+    {
+        characterAudioSource.clip = footstepSFX;
+        characterAudioSource.Play();
+    }
+
+    public void PlayJumpSFX()
+    {
+        if (IsGrounded())
+        {
+            characterAudioSource.clip = jumpSFX;
+            characterAudioSource.Play();
+        }
+
+    }
+
+    public void PlayDeathSFX()
+    {
+        characterAudioSource.clip = deathSFX;
+        characterAudioSource.Play();
     }
 }
