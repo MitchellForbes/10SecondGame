@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4584902055731749034}
   - component: {fileID: 2456995423215147667}
   - component: {fileID: 7071052380658812380}
+  - component: {fileID: 9124671078111765593}
   m_Layer: 0
   m_Name: Collectible
   m_TagString: Collectible
@@ -76,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 567780831, guid: a19f5f30bf9be4240a1b9c12d6618e7b, type: 3}
   m_Color: {r: 1, g: 0.9160186, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -99,6 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 552af7e62cd77994086e0929c8d5585d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timerObject: {fileID: 4626808525503382937, guid: 6b713164d1b6e4949a2c939737306480, type: 3}
 --- !u!58 &2456995423215147667
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -136,3 +138,24 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!95 &9124671078111765593
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2456995423215147752}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0de89e20d149fce428aabb157c470fb6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

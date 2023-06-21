@@ -74,7 +74,7 @@ public class Timer : MonoBehaviour
 
     public void Addtime()
     {
-        timers += 1;
+        timers += 10;
     }
     
 }

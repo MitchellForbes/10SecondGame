@@ -548,6 +548,9 @@ MonoBehaviour:
   characterAudioSource: {fileID: 7200814794425686380}
   footstepSFX: {fileID: 8300000, guid: 225d74b2ee93c0e4e837e1dd4528d358, type: 3}
   jumpSFX: {fileID: 8300000, guid: 383758bb2591fe3419d5a0bdb64f5be2, type: 3}
+  deathSFX: {fileID: 0}
+  collectibleAudioSource: {fileID: 0}
+  collectibleSFX: {fileID: 8300000, guid: 6c5b82b1c32b1a840ae185ce71d758cd, type: 3}
 --- !u!114 &3954470677959348315
 MonoBehaviour:
   m_ObjectHideFlags: 0
