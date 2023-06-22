@@ -6037,6 +6037,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 5957535870894496258}
+    - target: {fileID: 1127857616194233124, guid: 6b713164d1b6e4949a2c939737306480, type: 3}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 519420031}
     - target: {fileID: 4626808525503382937, guid: 6b713164d1b6e4949a2c939737306480, type: 3}
       propertyPath: m_Name
       value: TimerCanvas

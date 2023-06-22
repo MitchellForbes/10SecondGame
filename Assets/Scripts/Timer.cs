@@ -13,6 +13,9 @@ public class Timer : MonoBehaviour
     public GameObject player; // player game object
     public Text timeText; // text used for the timer
 
+    
+    [SerializeField] private Camera mainCamera;
+
     public static bool allowInput;
 
     // Start is called before the first frame update
@@ -26,8 +29,9 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         DisplayTime(timers); // calls the display timer fuction
+
+        ScreenShake(timers);
 
         if (gameOverUI.activeSelf && Input.GetKeyDown(KeyCode.Space) && allowInput == false) // resets the scene if gameover ui is active and then player press space
         {
@@ -76,5 +80,12 @@ public class Timer : MonoBehaviour
     {
         timers += 1;
     }
-    
+
+    public void ScreenShake(float Timer)
+    {
+        Vector3 originalCameraPosition = mainCamera.transform.position;
+        float shakeAmount = 0.001f * Timer;
+        mainCamera.transform.localPosition = originalCameraPosition + Random.insideUnitSphere * shakeAmount;
+    }
+
 }
