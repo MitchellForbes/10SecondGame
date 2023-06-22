@@ -46,6 +46,7 @@ public class PlayerMovement : MonoBehaviour
             {                                                // then changes height based on time space is held
                 rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
                 UpdateCharAnimation();
+                PlayJumpSFX();
             }
             if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
             {
@@ -135,11 +136,8 @@ public class PlayerMovement : MonoBehaviour
 
     public void PlayJumpSFX()
     {
-        if (IsGrounded())
-        {
             characterAudioSource.clip = jumpSFX;
             characterAudioSource.Play();
-        }
     }
 
     public void PlayDeathSFX()
