@@ -119,6 +119,7 @@ MonoBehaviour:
   gameOverUI: {fileID: 4766083728239267060}
   player: {fileID: 0}
   timeText: {fileID: 4626808526967845871}
+  mainCamera: {fileID: 0}
 --- !u!1 &4626808526967845869
 GameObject:
   m_ObjectHideFlags: 0
@@ -154,8 +155,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.5205, y: 228.25858}
-  m_SizeDelta: {x: 230.5522, y: 62.4765}
+  m_AnchoredPosition: {x: -0.0000076294, y: 442}
+  m_SizeDelta: {x: 302.3003, y: 136.787}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4626808526967845856
 CanvasRenderer:
@@ -187,7 +188,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 61d8c5e029118f044885943718735202, type: 3}
-    m_FontSize: 30
+    m_FontSize: 100
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0

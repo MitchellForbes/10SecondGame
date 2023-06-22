@@ -14,7 +14,6 @@ public class SpikeTrap : MonoBehaviour
             Debug.Log("Trigger with spike");
             Timer setTime = timerObject.GetComponent<Timer>();
             setTime.Traps();
-            Destroy(gameObject);
         }
     }
 

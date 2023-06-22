@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Character SFX Settings")]
     [SerializeField] private AudioSource characterAudioSource;
+    [SerializeField] private AudioSource characterJumpSource;
     [SerializeField] private AudioClip footstepSFX;
     [SerializeField] private AudioClip jumpSFX;
     [SerializeField] private AudioClip deathSFX;
@@ -37,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
         if (Timer.allowInput == true)
         {
             horizontal = Input.GetAxisRaw("Horizontal"); // user input to see if they go left or right
+            Debug.Log("all input is " + Timer.allowInput);
 
             if (Input.GetButtonDown("Jump") && IsGrounded()) // allows the character to jump when space is pressed and when if there is ground under the player
             {                                                // then changes height based on time space is held
@@ -49,6 +51,10 @@ public class PlayerMovement : MonoBehaviour
                 rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
                 UpdateCharAnimation();
             }
+        }
+        else
+        {
+            rb.velocity = new Vector2 (0f, 0f);
         }
         UpdateCharAnimation();
     }
@@ -132,8 +138,8 @@ public class PlayerMovement : MonoBehaviour
 
     public void PlayJumpSFX()
     {
-            characterAudioSource.clip = jumpSFX;
-            characterAudioSource.Play();
+        characterJumpSource.clip = jumpSFX;
+        characterJumpSource.Play();
     }
 
     public void PlayDeathSFX()

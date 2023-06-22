@@ -12,7 +12,6 @@ public class Timer : MonoBehaviour
     public GameObject gameOverUI; // the gameover ui
     public GameObject player; // player game object
     public Text timeText; // text used for the timer
-
     
     [SerializeField] private Camera mainCamera;
 
@@ -31,8 +30,6 @@ public class Timer : MonoBehaviour
     {
         DisplayTime(timers); // calls the display timer fuction
 
-        ScreenShake(timers);
-
         if (gameOverUI.activeSelf && Input.GetKeyDown(KeyCode.Space) && allowInput == false) // resets the scene if gameover ui is active and then player press space
         {
             gameOverUI.SetActive(true);
@@ -44,6 +41,7 @@ public class Timer : MonoBehaviour
         if (timers > 0) // makes timer only go down when above 0
         {
             timers = timers - Time.deltaTime;
+            ScreenShake(timers);
         }
 
         if (timers <= 0) // used for when timer hits 0 to froze character and displays the over screen
@@ -52,6 +50,12 @@ public class Timer : MonoBehaviour
             Debug.Log("Time Frozen");
             gameOverUI.SetActive(true);
             timers = 10;
+
+            player.GetComponent<Animator>().SetBool("Running", false);
+            player.GetComponent<Animator>().SetBool("Jump", false);
+            player.GetComponent<Animator>().SetBool("Falling", false);
+            player.GetComponent<Animator>().SetBool("Dead", true);
+            player.GetComponent<PlayerMovement>().UpdateCharAnimation();
         }
 
     }
@@ -83,9 +87,11 @@ public class Timer : MonoBehaviour
 
     public void ScreenShake(float Timer)
     {
-        Vector3 originalCameraPosition = mainCamera.transform.position;
-        float shakeAmount = 0.001f * Timer;
-        mainCamera.transform.localPosition = originalCameraPosition + Random.insideUnitSphere * shakeAmount;
+        if (allowInput)
+        {
+            Vector3 originalCameraPosition = mainCamera.transform.position;
+            float shakeAmount = 0.001f * (10 - Timer);
+            mainCamera.transform.localPosition = originalCameraPosition + Random.insideUnitSphere * shakeAmount;
+        }
     }
-
 }
