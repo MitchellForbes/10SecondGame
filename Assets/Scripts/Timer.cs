@@ -78,7 +78,7 @@ public class Timer : MonoBehaviour
 
     public void Addtime()
     {
-        timers += 10;
+        timers += 1;
     }
 
     public void ScreenShake(float Timer)
