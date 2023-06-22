@@ -42,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
         if (Timer.allowInput == true)
         {
             horizontal = Input.GetAxisRaw("Horizontal"); // user input to see if they go left or right
-            Debug.Log("all input is " + Timer.allowInput);
+            //Debug.Log("all input is " + Timer.allowInput);
 
             if (Input.GetButtonDown("Jump") && IsGrounded()) // allows the character to jump when space is pressed and when if there is ground under the player
             {                                                // then changes height based on time space is held

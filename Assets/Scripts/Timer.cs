@@ -28,36 +28,44 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        DisplayTime(timers); // calls the display timer fuction
+        if (SceneManager.GetActiveScene().buildIndex != 21)
+        {
+            DisplayTime(timers); // calls the display timer fuction
 
-        if (gameOverUI.activeSelf && Input.GetKeyDown(KeyCode.Space) && allowInput == false) // resets the scene if gameover ui is active and then player press space
-        {
-            gameOverUI.SetActive(true);
-            Time.timeScale = 1;
-            Scene scene = SceneManager.GetActiveScene();
-            SceneManager.LoadScene(scene.name);
-            Debug.Log("scene reloaded");
-        }
-        if (timers > 0) // makes timer only go down when above 0
-        {
-            timers = timers - Time.deltaTime;
-            ScreenShake(timers);
-        }
+            if (gameOverUI.activeSelf && Input.GetKeyDown(KeyCode.Space) && allowInput == false) // resets the scene if gameover ui is active and then player press space
+            {
+                gameOverUI.SetActive(true);
+                Time.timeScale = 1;
+                Scene scene = SceneManager.GetActiveScene();
+                SceneManager.LoadScene(scene.name);
+                Debug.Log("scene reloaded");
+            }
+            if (timers > 0) // makes timer only go down when above 0
+            {
+                timers = timers - Time.deltaTime;
+                ScreenShake(timers);
+            }
 
-        if (timers <= 0) // used for when timer hits 0 to froze character and displays the over screen
+            if (timers <= 0) // used for when timer hits 0 to froze character and displays the over screen
+            {
+                allowInput = false;
+                Debug.Log("Time Frozen");
+                gameOverUI.SetActive(true);
+                timers = 10;
+
+                player.GetComponent<Animator>().SetBool("Running", false);
+                player.GetComponent<Animator>().SetBool("Jump", false);
+                player.GetComponent<Animator>().SetBool("Falling", false);
+                player.GetComponent<Animator>().SetBool("Dead", true);
+                player.GetComponent<PlayerMovement>().UpdateCharAnimation();
+            }
+        }
+        else
         {
-            allowInput = false;
-            Debug.Log("Time Frozen");
-            gameOverUI.SetActive(true);
+            DisplayTime(timers);
             timers = 10;
-
-            player.GetComponent<Animator>().SetBool("Running", false);
-            player.GetComponent<Animator>().SetBool("Jump", false);
-            player.GetComponent<Animator>().SetBool("Falling", false);
-            player.GetComponent<Animator>().SetBool("Dead", true);
-            player.GetComponent<PlayerMovement>().UpdateCharAnimation();
         }
-
+        
     }
 
     void DisplayTime(float timeToDisplay)
