@@ -27,6 +27,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private AudioClip jumpSFX;
     [SerializeField] private AudioClip deathSFX;
 
+    [Header("Time Collectible")]
+    [SerializeField] private AudioSource collectibleAudioSource;
+    [SerializeField] private AudioClip collectibleSFX;
+
     private void Start()
     {
         playerCharacterAnimator.SetBool("Dead", false);
@@ -146,5 +150,14 @@ public class PlayerMovement : MonoBehaviour
     {
         characterAudioSource.clip = deathSFX;
         characterAudioSource.Play();
+    }
+
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Collectible")
+        {
+            collectibleAudioSource.clip = collectibleSFX;
+            collectibleAudioSource.Play();
+        }
     }
 }
