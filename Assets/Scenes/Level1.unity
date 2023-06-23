@@ -172,17 +172,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &256832519 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4626808526967845871, guid: 6b713164d1b6e4949a2c939737306480, type: 3}
-  m_PrefabInstance: {fileID: 4626808527055505384}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &323935466
 GameObject:
   m_ObjectHideFlags: 0
@@ -1990,7 +1979,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 6.3769026
+  orthographic size: 8.085813
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2019,7 +2008,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &686253805
 GameObject:
@@ -6026,7 +6015,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 002c71f97ce99424e8208b6643e5cf58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1001 &4626808527055505384
+--- !u!1001 &1952173509
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -6045,22 +6034,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: TimerCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 4626808525503382940, guid: 6b713164d1b6e4949a2c939737306480, type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 519420031}
-    - target: {fileID: 4626808525503382940, guid: 6b713164d1b6e4949a2c939737306480, type: 3}
-      propertyPath: m_RenderMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4626808525503382940, guid: 6b713164d1b6e4949a2c939737306480, type: 3}
-      propertyPath: m_PlaneDistance
-      value: -102.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 4626808525503382940, guid: 6b713164d1b6e4949a2c939737306480, type: 3}
-      propertyPath: m_SortingLayerID
-      value: -640972651
-      objectReference: {fileID: 0}
     - target: {fileID: 4626808525503382941, guid: 6b713164d1b6e4949a2c939737306480, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -6071,7 +6044,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4626808525503382941, guid: 6b713164d1b6e4949a2c939737306480, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4626808525503382941, guid: 6b713164d1b6e4949a2c939737306480, type: 3}
       propertyPath: m_AnchorMax.x
@@ -6144,14 +6117,6 @@ PrefabInstance:
     - target: {fileID: 4626808525503382941, guid: 6b713164d1b6e4949a2c939737306480, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7797346016988422149, guid: 6b713164d1b6e4949a2c939737306480, type: 3}
-      propertyPath: m_SortingLayer
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8099881786735959011, guid: 6b713164d1b6e4949a2c939737306480, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b713164d1b6e4949a2c939737306480, type: 3}
@@ -6245,7 +6210,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5957535869291408706, guid: d83550c916b076741b5ca6bc1f58b96a, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5957535869291408706, guid: d83550c916b076741b5ca6bc1f58b96a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6298,7 +6263,7 @@ PrefabInstance:
     - target: {fileID: 5957535869291408709, guid: d83550c916b076741b5ca6bc1f58b96a, type: 3}
       propertyPath: timeText
       value: 
-      objectReference: {fileID: 256832519}
+      objectReference: {fileID: 0}
     - target: {fileID: 5957535869291408709, guid: d83550c916b076741b5ca6bc1f58b96a, type: 3}
       propertyPath: gameOverUI
       value: 

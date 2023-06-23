@@ -189,8 +189,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 485.02}
-  m_SizeDelta: {x: 1527.15, y: 109.95}
+  m_AnchoredPosition: {x: 0.0049973, y: 295}
+  m_SizeDelta: {x: 1024, y: 109.95}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &567288737
 MonoBehaviour:
@@ -239,14 +239,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 100
-  m_fontSizeBase: 100
+  m_fontSize: 67
+  m_fontSizeBase: 67
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -341,8 +341,8 @@ MonoBehaviour:
   - {fileID: 1438734323}
   - {fileID: 92270604}
   cameraZoom:
-  - 6.5
-  - 4
+  - 6
+  - 5
 --- !u!1 &822395580
 GameObject:
   m_ObjectHideFlags: 0
@@ -480,7 +480,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 5.843012
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
