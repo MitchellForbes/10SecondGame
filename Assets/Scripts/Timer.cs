@@ -12,6 +12,7 @@ public class Timer : MonoBehaviour
     public GameObject gameOverUI; // the gameover ui
     public GameObject player; // player game object
     public Text timeText; // text used for the timer
+    public GameObject respawnText;
     
     [SerializeField] private Camera mainCamera;
 
@@ -22,6 +23,7 @@ public class Timer : MonoBehaviour
     {
         timers = 10;
         gameOverUI.SetActive(false);
+        respawnText.SetActive(false);
         allowInput = true;
     }
 
@@ -35,6 +37,7 @@ public class Timer : MonoBehaviour
             if (gameOverUI.activeSelf && Input.GetKeyDown(KeyCode.Space) && allowInput == false) // resets the scene if gameover ui is active and then player press space
             {
                 gameOverUI.SetActive(true);
+                respawnText.SetActive(true);
                 Time.timeScale = 1;
                 Scene scene = SceneManager.GetActiveScene();
                 SceneManager.LoadScene(scene.name);
@@ -51,6 +54,7 @@ public class Timer : MonoBehaviour
                 allowInput = false;
                 Debug.Log("Time Frozen");
                 gameOverUI.SetActive(true);
+                respawnText.SetActive(true);
                 timers = 10;
 
                 player.GetComponent<Animator>().SetBool("Running", false);
